@@ -50,6 +50,13 @@
     display: block; background: var(--paper); border: 1px solid var(--line);
     border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: var(--body);
   }
+  .add-cal {
+    display: inline-block; margin: 4px 0 16px;
+    font-family: "Hanken Grotesk", sans-serif; font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); background: var(--paper); border: 1px solid var(--line-strong);
+    border-radius: 999px; padding: 9px 18px; text-decoration: none;
+  }
+  .add-cal:hover { color: var(--orange-deep); }
   .next { margin-top: 32px; text-align: left; }
   .next h2 { font-size: 1.05rem; margin-bottom: 10px; }
   .next ol { margin: 0; padding-left: 20px; color: var(--body); }
@@ -59,25 +66,26 @@
 <body>
   <div class="wrap">
     <span class="badge">Payment confirmed</span>
-    <h1>You're in. Let's get your session booked.</h1>
-    <p class="lede">A confirmation is on its way to your email. The last step is picking your time.</p>
+    <h1>You're in. Here's your session.</h1>
+    <p class="lede">This is a live, single group session, everyone attends the same call. No booking step needed, your seat is already reserved.</p>
 
     <div class="booking-slot">
-      <div class="label">Booking widget goes here</div>
-      <p>
-        This block is a placeholder. Drop in your scheduler embed once you tell me which
-        one you're using (Calendly, Cal.com, or something else), and I'll wire the real
-        widget in here so people land on a live calendar instead of this note.
-      </p>
-      <code>&lt;!-- e.g. Calendly inline embed, or a Cal.com &lt;script&gt; snippet --&gt;</code>
+      <div class="label">Session details</div>
+      <p><strong>Date:</strong> Friday, September 25, 2026</p>
+      <p><strong>Time:</strong> 11:00 AM Eastern (US/Canada) &middot; 5:00 PM Central European Time</p>
+      <p><strong>Duration:</strong> 2 hours</p>
+      <!-- TODO: replace with the real Google Meet link once created -->
+      <p><strong>Where:</strong> Google Meet. Your join link is emailed the day before the session.</p>
+      <a class="add-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Get%20Your%20Time%20Back%20-%20Business%20Time%20Assessment&dates=20260925T150000Z/20260925T170000Z&details=Live%202-hour%20Business%20Time%20Assessment%20session%20with%20Martin%20Krejci.%20Your%20Google%20Meet%20link%20will%20be%20emailed%20before%20the%20session.%20Questions%3A%20support%40iammartinkrejci.com" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <code>Questions in the meantime? support@iammartinkrejci.com</code>
     </div>
 
     <div class="next">
       <h2>What happens next</h2>
       <ol>
         <li>Confirmation email lands in your inbox within a few minutes.</li>
-        <li>Pick your session time above.</li>
-        <li>The intake form link is in that same email. Fill it out before the session so your Executive Report has real numbers to work with.</li>
+        <li>You'll get the exact date and Google Meet link by email as the cohort date locks in.</li>
+        <li>Prep instructions land in your inbox before the session so we can dig into your own numbers, not a generic example.</li>
       </ol>
     </div>
   </div>
