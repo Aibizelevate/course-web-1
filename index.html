@@ -91,6 +91,7 @@
     margin: 0 auto;
     gap: 16px;
   }
+  .topbar-left { display: flex; align-items: center; gap: 14px; }
   .brand { display: flex; align-items: center; gap: 11px; }
   .brand-mark {
     width: 32px; height: 32px;
@@ -383,6 +384,45 @@
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle:hover { border-color: var(--line-strong); color: var(--orange-deep); }
+  .nav-toggle svg { width: 18px; height: 18px; display: block; }
+  .nav-toggle .icon-close { display: none; }
+  .nav-toggle.open .icon-menu { display: none; }
+  .nav-toggle.open .icon-close { display: block; }
+
+  @media (max-width: 760px) {
+    .nav-toggle { display: inline-flex; }
+    .topbar-inner { position: relative; }
+    .nav-tabs {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      border-radius: 0 0 var(--radius-card) var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 10px clamp(20px, 6vw, 44px) 16px;
+    }
+    .nav-tabs.open { display: flex; }
+    .nav-tab { width: 100%; text-align: left; }
+  }
+
   .footer-social { display: flex; gap: 16px; align-items: center; }
   .footer-social a { color: var(--muted); display: inline-flex; transition: color .15s; }
   .footer-social a:hover { color: var(--orange-deep); }
@@ -409,6 +449,11 @@
 
 <div class="topbar">
   <div class="topbar-inner">
+    <div class="topbar-left">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-tabs">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
     <div class="brand">
       <div class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 100 100">
@@ -424,7 +469,8 @@
       </div>
       <div class="brand-text">Martin Krejci</div>
     </div>
-    <nav class="nav-tabs">
+    </div>
+    <nav class="nav-tabs" id="nav-tabs">
       <button class="nav-tab" data-tab-btn="course">Course</button>
       <button class="nav-tab" data-tab-btn="about">About Me</button>
       <button class="nav-tab" data-tab-btn="xroadstudio">Xroad Studio</button>
@@ -686,7 +732,7 @@
 </div>
 
 <footer>
-  <span>&copy; 2026 Euroraven s.r.o. &middot; <button class="footer-link" data-tab-link="legal">Terms &amp; Privacy</button></span>
+  <span>&copy; 2026 Euroraven s.r.o. &middot; <button class="footer-link" data-tab-link="legal">Terms &amp; Privacy</button> &middot; <a class="footer-link" href="mailto:support@iammartinkrejci.com">support@iammartinkrejci.com</a></span>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/martin-krejciaibiz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8.24h4.56V23H.22V8.24zM8.19 8.24h4.37v2.01h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.48 3.04 5.48 6.99V23h-4.56v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.76-2.59 3.57V23H8.19V8.24z"/></svg></a>
     <a href="https://www.instagram.com/iammartinkrejci/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -704,6 +750,15 @@
   var panels = document.querySelectorAll('.tab-panel');
   var btns = document.querySelectorAll('[data-tab-btn]');
   var links = document.querySelectorAll('[data-tab-link]');
+  var navToggle = document.querySelector('.nav-toggle');
+  var navTabs = document.getElementById('nav-tabs');
+
+  function closeMenu() {
+    if (!navToggle || !navTabs) return;
+    navToggle.classList.remove('open');
+    navTabs.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
 
   function show(id) {
     if (TABS.indexOf(id) === -1) id = 'course';
@@ -711,6 +766,7 @@
     btns.forEach(function (b) { b.classList.toggle('active', b.dataset.tabBtn === id); });
     try { history.replaceState(null, '', '#' + id); } catch (e) {}
     window.scrollTo(0, 0);
+    closeMenu();
   }
 
   btns.forEach(function (b) {
@@ -719,6 +775,19 @@
   links.forEach(function (a) {
     a.addEventListener('click', function () { show(a.dataset.tabLink); });
   });
+
+  if (navToggle && navTabs) {
+    navToggle.addEventListener('click', function () {
+      var open = navTabs.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!navTabs.classList.contains('open')) return;
+      if (navTabs.contains(e.target) || navToggle.contains(e.target)) return;
+      closeMenu();
+    });
+  }
 
   show((location.hash || '#course').slice(1));
 })();
