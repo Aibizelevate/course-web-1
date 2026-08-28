@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're in — book your session</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+  :root {
+    --paper: #ffffff;
+    --tint: #f6f3ee;
+    --tint-line: rgba(26, 23, 18, 0.08);
+    --ink: #1a1712;
+    --body: #4a453d;
+    --muted: #7a7365;
+    --line: rgba(26, 23, 18, 0.10);
+    --line-strong: rgba(232, 89, 12, 0.32);
+    --orange: #e8590c;
+    --orange-deep: #a3410c;
+    --orange-wash: rgba(232, 89, 12, 0.08);
+    --radius-card: 14px;
+    --shadow: 0 20px 44px -24px rgba(26, 23, 18, 0.22);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--body);
+    font-family: "Hanken Grotesk", "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 { font-family: "Hanken Grotesk", sans-serif; color: var(--ink); font-weight: 700; margin: 0; }
+  .wrap { max-width: 620px; margin: 0 auto; padding: clamp(48px,8vw,88px) clamp(20px,6vw,32px); text-align: center; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange-wash); border: 1px solid var(--line-strong);
+    color: var(--orange-deep); font-weight: 600; font-size: 0.82rem;
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+  }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.3rem); margin-bottom: 14px; }
+  p.lede { font-size: 1.05rem; color: var(--body); max-width: 46ch; margin: 0 auto 36px; }
+  .booking-slot {
+    border: 1px dashed var(--line-strong); border-radius: var(--radius-card);
+    padding: 32px 24px; background: var(--tint); text-align: left;
+  }
+  .booking-slot .label {
+    font-size: 0.72rem; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--orange-deep); font-weight: 600; margin-bottom: 10px;
+  }
+  .booking-slot p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
+  .booking-slot code {
+    display: block; background: var(--paper); border: 1px solid var(--line);
+    border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: var(--body);
+  }
+  .next { margin-top: 32px; text-align: left; }
+  .next h2 { font-size: 1.05rem; margin-bottom: 10px; }
+  .next ol { margin: 0; padding-left: 20px; color: var(--body); }
+  .next li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Payment confirmed</span>
+    <h1>You're in. Let's get your session booked.</h1>
+    <p class="lede">A confirmation is on its way to your email. The last step is picking your time.</p>
+
+    <div class="booking-slot">
+      <div class="label">Booking widget goes here</div>
+      <p>
+        This block is a placeholder — drop in your scheduler embed once you tell me which
+        one you're using (Calendly, Cal.com, or something else), and I'll wire the real
+        widget in here so people land on a live calendar instead of this note.
+      </p>
+      <code>&lt;!-- e.g. Calendly inline embed, or a Cal.com &lt;script&gt; snippet --&gt;</code>
+    </div>
+
+    <div class="next">
+      <h2>What happens next</h2>
+      <ol>
+        <li>Confirmation email lands in your inbox within a few minutes.</li>
+        <li>Pick your session time above.</li>
+        <li>The intake form link is in that same email — fill it out before the session so your Executive Report has real numbers to work with.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
