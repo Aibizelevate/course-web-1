@@ -357,6 +357,12 @@
     color: var(--muted);
     border-top: 1px solid var(--line);
   }
+  .footer-link {
+    background: none; border: none; padding: 0; margin: 0;
+    font: inherit; color: var(--muted); text-decoration: underline;
+    cursor: pointer;
+  }
+  .footer-link:hover { color: var(--orange-deep); }
 
   /* ---- tabs ---- */
   .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -636,8 +642,51 @@
 </section>
 </div><!-- /tab course -->
 
+<div class="tab-panel" data-tab="legal">
+<header class="hero" style="padding-bottom:0;">
+  <div class="wrap-wide">
+    <span class="eyebrow">Legal</span>
+    <h1>Terms, Privacy, and Cookies</h1>
+  </div>
+</header>
+
+<section class="section wrap" style="max-width:760px;">
+  <div class="section-head">
+    <h2>Terms of Service</h2>
+    <p>Last updated August 2026.</p>
+  </div>
+  <p><b>Who you're buying from.</b> The Business Time Assessment ("the session") is sold by Euroraven s.r.o., operating this site under the name Martin Krejci / Get Your Time Back. Payments are processed by <a href="https://www.creem.io" target="_blank" rel="noopener">Creem.io</a>, acting as the merchant of record. Your card statement will show a Creem billing descriptor, not Euroraven s.r.o. directly &mdash; that's expected.</p>
+  <p><b>What you're buying.</b> One seat in a live (or, for later cohorts, recorded) two-hour Business Time Assessment session, priced at $99 USD, one-time payment, no recurring charge. You'll receive a personalized Executive Report, built from the numbers you provide during the session and the intake form, delivered within 24 hours of the session.</p>
+  <p><b>Recording.</b> Live sessions are recorded for later reuse. Only the facilitator's screen and voice are captured &mdash; participants are never recorded or shown on camera.</p>
+  <p><b>Refunds.</b> Full refund, on request, no questions asked, any time before you attend your session. If you've already attended, refund requests are handled case by case &mdash; email the support address below and we'll respond within 3 business days.</p>
+  <p><b>What this isn't.</b> The session is a diagnostic, not financial, legal, or tax advice, and not a guarantee of any specific savings figure &mdash; the numbers in your report come from your own inputs. Implementation of anything in the report is a separate, explicitly optional next step, not included in the $99 price.</p>
+  <p><b>Liability.</b> To the extent permitted by law, Euroraven s.r.o.'s liability for this purchase is limited to the amount paid for the session. We're not liable for indirect or consequential damages arising from decisions made using your report.</p>
+  <p><b>Governing law.</b> These terms are governed by the laws of the Czech Republic, where Euroraven s.r.o. is registered.</p>
+
+  <div class="section-head" style="margin-top:40px;">
+    <h2>Privacy Policy</h2>
+  </div>
+  <p><b>What we collect.</b> Your name and email (via Creem, at checkout), and whatever you enter into the intake form and worksheet before your session &mdash; your work hours, task list, and hourly value estimate. We collect only what's needed to run your session and build your report.</p>
+  <p><b>How it's used.</b> Your intake and worksheet answers are processed &mdash; in part with AI tools &mdash; to generate your Executive Report. We don't use your business data for anything beyond delivering your session, your report, and reasonable follow-up about the assessment itself.</p>
+  <p><b>Who it's shared with.</b> Creem.io processes your payment details directly &mdash; we never see or store your card information. We don't sell your data, and we don't share your intake answers with anyone outside delivering your report.</p>
+  <p><b>How long we keep it.</b> Only as long as needed to deliver your session and report, plus whatever minimum period Czech accounting and tax law requires for the payment record itself.</p>
+  <p><b>Your rights.</b> You can ask what we hold on you, ask us to correct it, or ask us to delete it, at the support email below.</p>
+
+  <div class="section-head" style="margin-top:40px;">
+    <h2>Cookies</h2>
+  </div>
+  <p>This site currently sets no tracking or advertising cookies. The only thing stored in your browser is a small preference flag once you make a choice on the cookie banner, and (if you use the tab navigation) which tab you last viewed, kept only in your session, never sent anywhere. If that changes &mdash; for example if analytics or ad-tracking pixels are added later &mdash; they'll only load after you accept on the banner, and this page will be updated to say so.</p>
+  <p>You can change your choice any time: <button class="footer-link" onclick="window.__reopenCookieBanner && window.__reopenCookieBanner()">reopen the cookie banner</button>.</p>
+
+  <div class="section-head" style="margin-top:40px;">
+    <h2>Contact</h2>
+  </div>
+  <p>Questions about any of the above: <a href="mailto:info@aibizelevate.com">info@aibizelevate.com</a>.</p>
+</section>
+</div>
+
 <footer>
-  <span>&copy; 2026 Euroraven s.r.o.</span>
+  <span>&copy; 2026 Euroraven s.r.o. &middot; <button class="footer-link" data-tab-link="legal">Terms &amp; Privacy</button></span>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/martin-krejciaibiz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.22 8.24h4.56V23H.22V8.24zM8.19 8.24h4.37v2.01h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.48 3.04 5.48 6.99V23h-4.56v-6.75c0-1.61-.03-3.68-2.24-3.68-2.25 0-2.59 1.76-2.59 3.57V23H8.19V8.24z"/></svg></a>
     <a href="https://www.instagram.com/iammartinkrejci/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -651,7 +700,7 @@
 
 <script>
 (function () {
-  var TABS = ['course', 'about', 'xroadstudio'];
+  var TABS = ['course', 'about', 'xroadstudio', 'legal'];
   var panels = document.querySelectorAll('.tab-panel');
   var btns = document.querySelectorAll('[data-tab-btn]');
   var links = document.querySelectorAll('[data-tab-link]');
@@ -672,6 +721,62 @@
   });
 
   show((location.hash || '#course').slice(1));
+})();
+</script>
+
+<style>
+  #cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--ink); color: var(--paper);
+    padding: 16px clamp(20px, 6vw, 44px);
+    display: none;
+  }
+  #cookie-banner.visible { display: block; }
+  #cookie-banner .inner {
+    max-width: 980px; margin: 0 auto;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  #cookie-banner p { margin: 0; font-size: 0.86rem; color: rgba(250,246,239,0.82); flex: 1 1 320px; }
+  #cookie-banner a { color: #fff; text-decoration: underline; }
+  #cookie-banner .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  #cookie-banner button {
+    font-family: "Hanken Grotesk", sans-serif; font-weight: 600; font-size: 0.84rem;
+    padding: 9px 18px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  }
+  #cookie-banner .accept { background: var(--orange); color: #fff; border: none; }
+  #cookie-banner .decline { background: transparent; color: rgba(250,246,239,0.82); border: 1px solid rgba(250,246,239,0.3); }
+</style>
+<div id="cookie-banner" role="dialog" aria-label="Cookie preferences">
+  <div class="inner">
+    <p>This site doesn't set tracking cookies today &mdash; just a small preference flag for this choice. If that changes, we'll ask again. See the <button class="footer-link" style="color:inherit;" data-tab-link="legal">Terms &amp; Privacy</button> tab for details.</p>
+    <div class="actions">
+      <button class="decline" id="cookie-decline">Decline</button>
+      <button class="accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'cookie-consent';
+  var banner = document.getElementById('cookie-banner');
+
+  function show() { banner.classList.add('visible'); }
+  function hide() { banner.classList.remove('visible'); }
+
+  try {
+    if (!localStorage.getItem(KEY)) show();
+  } catch (e) { show(); }
+
+  document.getElementById('cookie-accept').addEventListener('click', function () {
+    try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+    hide();
+  });
+  document.getElementById('cookie-decline').addEventListener('click', function () {
+    try { localStorage.setItem(KEY, 'declined'); } catch (e) {}
+    hide();
+  });
+
+  window.__reopenCookieBanner = function () { show(); };
 })();
 </script>
 
